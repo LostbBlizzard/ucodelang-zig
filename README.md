@@ -21,9 +21,11 @@ Heres Heres the main [Repository](https://github.com/LostbBlizzard/UCodeLang/tre
 
 Just run.
 <code>
+    
     $ git clone https://github.com/LostbBlizzard/UCodelang-Zig
     $ cd ucodelang-zig
     $ zig build 
+
 </code>
 
 ## API Reference
