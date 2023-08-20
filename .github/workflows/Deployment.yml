@@ -1,0 +1,40 @@
+name: UploadToCargo
+
+on: 
+  workflow_dispatch:
+   inputs:
+      VersionNumber:
+        description: 'The New Version Number Ex: "1.2.3"'
+        required: true
+        type: string
+        default: "0.0.0"
+
+      IsPreRelease:
+        description: 'Is Prelease'
+        required: true
+        type: boolean
+        default: true
+      
+      Changelog:
+        description: 'The Main Change Log'
+        required: true
+        type: string
+        default: 'added: fixed: removed:'
+
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: get zig
+      uses: goto-bus-stop/setup-zig@v2
+    
+    - name: build
+      run: zig build test
+
+    - name: Upload to Zig Package Manager
+      run: echo "do upload here"
